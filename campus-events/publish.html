@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>发布活动 · 校园活动汇</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">活</span>
+        <span class="brand-name">校园活动汇</span>
+      </a>
+      <div class="header-right">
+        <nav class="site-nav">
+          <a href="index.html">活动列表</a>
+          <a href="publish.html" class="is-active">发布活动</a>
+        </nav>
+        <div class="user-area" id="user-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>发布活动</h1>
+        <p class="page-sub">登录后发布，发布者身份由账号决定。带 <span class="req">*</span> 的是必填项。</p>
+      </div>
+    </div>
+
+    <div id="login-gate" hidden></div>
+    <div id="form-status"></div>
+
+    <form class="form-card" id="publish-form" novalidate hidden>
+      <div class="form-grid">
+        <div class="field" data-field="title">
+          <label class="field-label" for="f-title">活动名称<span class="req">*</span></label>
+          <input class="input" id="f-title" name="title" type="text" maxlength="60" autocomplete="off" placeholder="例：第十九届「挑战杯」校内选拔赛">
+          <p class="field-error"></p>
+        </div>
+
+        <div class="form-row">
+          <div class="field" data-field="category">
+            <label class="field-label" for="f-category">活动类型<span class="req">*</span></label>
+            <select class="select" id="f-category" name="category">
+              <option value="">请选择</option>
+              <option value="学科竞赛">学科竞赛</option>
+              <option value="讲座报告">讲座报告</option>
+              <option value="社团活动">社团活动</option>
+              <option value="招新">招新</option>
+              <option value="志愿服务">志愿服务</option>
+              <option value="其他">其他</option>
+            </select>
+            <p class="field-error"></p>
+          </div>
+
+          <div class="field" data-field="publisher">
+            <span class="field-label">发布者身份</span>
+            <div class="identity" id="publisher-identity"></div>
+            <p class="field-hint">由登录账号决定，不能在表单里改。</p>
+          </div>
+        </div>
+
+        <div class="field" data-field="audience">
+          <span class="field-label">面向对象<span class="req">*</span></span>
+          <div class="form-row">
+            <select class="select" id="f-audience-scope" name="audienceScope">
+              <option value="all">面向全校</option>
+              <option value="college">指定学院 / 年级</option>
+            </select>
+            <input class="input" id="f-audience-detail" name="audienceDetail" type="text" maxlength="20" autocomplete="off" placeholder="例：计算机学院 / 2025 级" hidden>
+          </div>
+          <p class="field-hint" id="audience-hint">所有同学都能看到。</p>
+          <p class="field-error"></p>
+        </div>
+
+        <div class="form-row form-row--3">
+          <div class="field" data-field="startDate">
+            <label class="field-label" for="f-startDate">开始时间<span class="req">*</span></label>
+            <input class="input" id="f-startDate" name="startDate" type="date">
+            <p class="field-error"></p>
+          </div>
+          <div class="field" data-field="endDate">
+            <label class="field-label" for="f-endDate">结束时间<span class="req">*</span></label>
+            <input class="input" id="f-endDate" name="endDate" type="date">
+            <p class="field-error"></p>
+          </div>
+          <div class="field" data-field="signupDeadline">
+            <label class="field-label" for="f-signupDeadline">报名截止<span class="req">*</span></label>
+            <input class="input" id="f-signupDeadline" name="signupDeadline" type="date">
+            <p class="field-error"></p>
+          </div>
+        </div>
+        <p class="field-hint">结束时间不能早于开始时间，报名截止不能晚于结束时间。单日活动把两个日期填成同一天即可。</p>
+
+        <div class="field" data-field="description">
+          <label class="field-label" for="f-description">活动介绍<span class="req">*</span></label>
+          <textarea class="textarea" id="f-description" name="description" rows="6" maxlength="2000" placeholder="活动内容、参与对象、注意事项……空一行可以分段。"></textarea>
+          <p class="field-error"></p>
+        </div>
+
+        <div class="field" data-field="link">
+          <label class="field-label" for="f-link">参与方式 / 相关链接<span class="hint-inline">选填</span></label>
+          <input class="input" id="f-link" name="link" type="text" autocomplete="off" placeholder="https://...">
+          <p class="field-error"></p>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="reset" class="btn-ghost">重置</button>
+        <button type="submit" class="btn-primary">发布活动</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="index.html">活动列表</a>
+        <a href="index.html?view=timeline">时间轴</a>
+        <a href="publish.html">发布活动</a>
+      </nav>
+      <p class="footer-note">
+        账号、活动和留言都存在服务器的本地数据库（SQLite）里，换浏览器也能看到；只有管理员能恢复示例数据。
+        <button type="button" class="link-btn" data-action="reset-store">恢复示例数据</button>
+      </p>
+      <p class="footer-copy">校园活动汇 · 桑梓实验室 2026 纳新示例项目</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/ui-publish.js"></script>
+</body>
+</html>

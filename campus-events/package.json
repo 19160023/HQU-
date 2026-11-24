@@ -1,0 +1,14 @@
+{
+  "name": "campus-events",
+  "version": "0.7.1",
+  "private": true,
+  "type": "module",
+  "description": "校园活动聚合与时间轴系统（桑梓实验室 2026 纳新项目）",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server/server.mjs 8080",
+    "test": "node tests/smoke.mjs && node tests/render.mjs && node tests/timeline.mjs && node tests/publish.mjs && node tests/comments.mjs && node tests/api.mjs && node tests/dom.mjs"
+  }
+}

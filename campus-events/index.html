@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>校园活动汇 · 活动列表</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">活</span>
+        <span class="brand-name">校园活动汇</span>
+      </a>
+      <div class="header-right">
+        <nav class="site-nav">
+          <a href="index.html" class="is-active">活动列表</a>
+          <a href="publish.html">发布活动</a>
+        </nav>
+        <div class="user-area" id="user-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>近期活动</h1>
+        <p class="page-sub">学院、学生组织和个人发布的活动，集中在这里。</p>
+        <div class="stat" id="stats"></div>
+      </div>
+      <div class="view-switch" id="view-switch">
+        <a href="index.html" data-view="list">列表</a>
+        <a href="index.html?view=timeline" data-view="timeline">时间轴</a>
+      </div>
+    </div>
+
+    <div id="page-alert"></div>
+
+    <section class="toolbar" aria-label="搜索与筛选">
+      <input
+        class="search-input"
+        id="q"
+        type="search"
+        placeholder="搜索活动名称、介绍或发布者…"
+        autocomplete="off"
+        aria-label="关键词搜索">
+      <div class="toolbar-row">
+        <div class="chips" id="category-chips" role="group" aria-label="按活动类型筛选"></div>
+        <select class="select select--sm" id="audience" aria-label="按面向对象筛选"></select>
+      </div>
+    </section>
+
+    <p class="notice">当前展示的是 <b>示例数据</b>，用于演示功能，不代表任何真实活动。</p>
+
+    <section class="card-grid" id="activity-list" aria-live="polite"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="index.html">活动列表</a>
+        <a href="index.html?view=timeline">时间轴</a>
+        <a href="publish.html">发布活动</a>
+      </nav>
+      <p class="footer-note">
+        账号、活动和留言都存在服务器的本地数据库（SQLite）里，换浏览器也能看到；只有管理员能恢复示例数据。
+        <button type="button" class="link-btn" data-action="reset-store">恢复示例数据</button>
+      </p>
+      <p class="footer-copy">校园活动汇 · 桑梓实验室 2026 纳新示例项目</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/ui-list.js"></script>
+</body>
+</html>

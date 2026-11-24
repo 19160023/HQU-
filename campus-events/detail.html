@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>活动详情 · 校园活动汇</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">活</span>
+        <span class="brand-name">校园活动汇</span>
+      </a>
+      <div class="header-right">
+        <nav class="site-nav">
+          <a href="index.html" class="is-active">活动列表</a>
+          <a href="publish.html">发布活动</a>
+        </nav>
+        <div class="user-area" id="user-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div id="detail-root"></div>
+    <div id="comments-root"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="index.html">活动列表</a>
+        <a href="index.html?view=timeline">时间轴</a>
+        <a href="publish.html">发布活动</a>
+      </nav>
+      <p class="footer-note">
+        账号、活动和留言都存在服务器的本地数据库（SQLite）里，换浏览器也能看到；只有管理员能恢复示例数据。
+        <button type="button" class="link-btn" data-action="reset-store">恢复示例数据</button>
+      </p>
+      <p class="footer-copy">校园活动汇 · 桑梓实验室 2026 纳新示例项目</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/ui-detail.js"></script>
+</body>
+</html>

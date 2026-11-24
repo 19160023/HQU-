@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>登录 · 校园活动汇</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">活</span>
+        <span class="brand-name">校园活动汇</span>
+      </a>
+      <div class="header-right">
+        <nav class="site-nav">
+          <a href="index.html">活动列表</a>
+          <a href="publish.html">发布活动</a>
+        </nav>
+        <div class="user-area" id="user-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="auth-wrap">
+      <section class="auth-card">
+        <div class="auth-tabs" role="tablist" aria-label="登录或注册">
+          <button type="button" class="auth-tab is-active" data-tab="login" role="tab">登录</button>
+          <button type="button" class="auth-tab" data-tab="register" role="tab">注册</button>
+        </div>
+
+        <div id="auth-alert"></div>
+
+        <form id="login-form" class="auth-form" novalidate>
+          <div class="field">
+            <label class="field-label" for="login-account">登录名</label>
+            <input class="input" id="login-account" name="account" autocomplete="username" placeholder="例：student01">
+          </div>
+          <div class="field">
+            <label class="field-label" for="login-password">密码</label>
+            <input class="input" id="login-password" name="password" type="password" autocomplete="current-password" placeholder="至少 6 位">
+          </div>
+          <button type="submit" class="btn-primary btn-block">登录</button>
+        </form>
+
+        <form id="register-form" class="auth-form" novalidate hidden>
+          <div class="form-row">
+            <div class="field">
+              <label class="field-label" for="reg-account">登录名</label>
+              <input class="input" id="reg-account" name="account" autocomplete="username" placeholder="4–20 位字母、数字或下划线">
+            </div>
+            <div class="field">
+              <label class="field-label" for="reg-password">密码</label>
+              <input class="input" id="reg-password" name="password" type="password" autocomplete="new-password" placeholder="至少 6 位">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="reg-display">显示名</label>
+            <input class="input" id="reg-display" name="displayName" maxlength="20" autocomplete="nickname" placeholder="页头和你留言时用的名字">
+          </div>
+
+          <div class="field">
+            <span class="field-label">发布者身份</span>
+            <div class="radio-group" id="publisher-type-options"></div>
+            <p class="field-hint">注册后发布活动时，发布者身份和名称会直接用这里的设置，不能在表单里临时改。</p>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="reg-publisher">发布者名称</label>
+            <input class="input" id="reg-publisher" name="publisherName" maxlength="30" placeholder="例：计算机学院 / 摄影协会 / 李思远">
+            <p class="field-hint">留空就用显示名。</p>
+          </div>
+
+          <button type="submit" class="btn-primary btn-block">注册并登录</button>
+        </form>
+
+        <p class="auth-guest">
+          <a href="index.html">先不登录，直接浏览活动 →</a>
+        </p>
+
+        <div class="auth-hint">
+          <p><b>演示账号</b>（本地数据库首次启动时自动创建）：</p>
+          <ul>
+            <li><code>admin</code> / <code>admin2026</code> —— 管理员，能下架任何活动</li>
+            <li><code>college01</code> / <code>college2026</code> —— 学院身份</li>
+            <li><code>org01</code> / <code>org2026</code> —— 学生组织身份</li>
+            <li><code>student01</code> / <code>student2026</code> —— 个人身份</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="index.html">活动列表</a>
+        <a href="index.html?view=timeline">时间轴</a>
+        <a href="publish.html">发布活动</a>
+      </nav>
+      <p class="footer-note">
+        账号、活动和留言都存在服务器的本地数据库（SQLite）里，换浏览器也能看到；只有管理员能恢复示例数据。
+        <button type="button" class="link-btn" data-action="reset-store">恢复示例数据</button>
+      </p>
+      <p class="footer-copy">校园活动汇 · 桑梓实验室 2026 纳新示例项目</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/ui-auth.js"></script>
+</body>
+</html>
